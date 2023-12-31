@@ -22,6 +22,7 @@ fn copy_folder_contents(src: &Path, dest: &Path) -> io::Result<()> {
         // Copy the file or directory
         if entry_path.is_file() {
             fs::copy(&entry_path, &dest_path)?;
+            println!("Copied {} to {}", entry_path.display(), dest_path.display());
         } else if entry_path.is_dir() {
             copy_folder_contents(&entry_path, &dest_path)?;
         }
